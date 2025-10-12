@@ -2,7 +2,9 @@ Step 1: Create the Namespace
 
 First, create the namespace:
 
-```kubectl create namespace iron-namespace-xfusion```
+```
+kubectl create namespace iron-namespace-xfusion
+```
 
 ![alt text](image-1.png)
 
@@ -11,7 +13,9 @@ Step 2: Create the Iron Gallery Deployment
 
 Create a file named iron-gallery-deployment.yaml:
 
-```vi iron-gallery-deployment.yaml```
+```
+vi iron-gallery-deployment.yaml
+```
 
 ```
 apiVersion: apps/v1
@@ -52,7 +56,9 @@ Step 3: Create the Iron DB Deployment
 
 Create a file named iron-db-deployment.yaml:
 
+```
 vi iron-db-deployment.yaml
+```
 
 ```
 apiVersion: apps/v1
@@ -95,7 +101,9 @@ Step 4: Create the Iron DB Service
 
 Create a file named iron-db-service.yaml:
 
-```vi iron-db-service.yaml```
+```
+vi iron-db-service.yaml
+```
 
 ```
 apiVersion: v1
@@ -117,7 +125,9 @@ Step 5: Create the Iron Gallery Service
 
 Create a file named iron-gallery-service.yaml:
 
-```vi iron-gallery-service.yaml```
+```
+vi iron-gallery-service.yaml
+```
 
 ```
 apiVersion: v1
@@ -156,16 +166,24 @@ Check if all resources are created successfully one by one:
 
 
 # Check namespace
-```kubectl get namespaces | grep iron-namespace-xfusion```
+```
+kubectl get namespaces | grep iron-namespace-xfusion
+```
 
 # Check deployments
-```kubectl get deployments -n iron-namespace-xfusion```
+```
+kubectl get deployments -n iron-namespace-xfusion
+```
 
 # Check pods
-```kubectl get pods -n iron-namespace-xfusion```
+```
+kubectl get pods -n iron-namespace-xfusion
+```
 
 # Check services
-```kubectl get services -n iron-namespace-xfusion```
+```
+kubectl get services -n iron-namespace-xfusion
+```
 
 ![alt text](image-2.png)
 
@@ -175,10 +193,14 @@ Once the pods are running, you can test the Iron Gallery application:
 bash
 
 # Get node IP
-```kubectl get nodes -o wide```
+```
+kubectl get nodes -o wide
+```
 
 # Access the application (replace with actual node IP)
-```curl http://172.17.0.2:32678```
+```
+curl http://172.17.0.2:32678
+```
 
 ![alt text](image-3.png)
 
