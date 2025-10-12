@@ -190,7 +190,6 @@ kubectl get services -n iron-namespace-xfusion
 Step 8: Testing the Application
 
 Once the pods are running, you can test the Iron Gallery application:
-bash
 
 # Get node IP
 ```
