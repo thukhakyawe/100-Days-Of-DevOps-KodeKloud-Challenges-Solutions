@@ -196,7 +196,7 @@ Once the pods are running, you can test the Iron Gallery application:
 kubectl get nodes -o wide
 ```
 
-# Access the application (replace with actual node IP)
+# Access the application (replace with actual node IP)a
 ```
 curl http://172.17.0.2:32678
 ```
