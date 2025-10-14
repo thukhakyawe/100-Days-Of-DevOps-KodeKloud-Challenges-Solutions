@@ -162,6 +162,6 @@ kubectl logs $POD_NAME
 ![alt text](image-6.png)
 
 # Check if MySQL is ready (this might take a minute)
-kubectl exec $POD_NAME -- mysql -u root -pYUIidhb667 -e "SHOW DATABASES;"
+kubectl exec $POD_NAME -- mysql -u root -pYUIidhb667 -e "SHOW DATABASES;"a
 
 ![alt text](image-7.png)
