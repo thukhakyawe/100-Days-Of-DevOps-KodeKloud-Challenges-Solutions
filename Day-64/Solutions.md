@@ -122,7 +122,7 @@ kubectl get service python-service-nautilus
 ![alt text](image-8.png)
 
 
-# Test the application
+# Test the applicationa
 ```
 NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[0].address}')
 SERVICE_PORT=$(kubectl get service python-service-nautilus  -o jsonpath='{.spec.ports[0].nodePort}')
