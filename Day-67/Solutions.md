@@ -182,7 +182,7 @@ kubectl get services
 ```
 
 ```
-kubectl get podsa
+kubectl get pods
 ```
 
 ![alt text](image-6.png)
