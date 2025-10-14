@@ -64,7 +64,7 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 
         Full name: Ravi
 
-        Email: ravi@jenkins.stratos.xfusioncorp.com
+        Email: ravi@jenkins.stratos.xfusioncorp.coma
 
 ![alt text](image-8.png)
 
