@@ -87,6 +87,6 @@ Test Redis functionality:
 kubectl exec $POD_NAME -- redis-cli ping
 
 # Check Redis info
-kubectl exec $POD_NAME -- redis-cli info memory | grep maxmemorya
+kubectl exec $POD_NAME -- redis-cli info memory | grep maxmemory
 
 ![alt text](image-3.png)
