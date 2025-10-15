@@ -1,4 +1,4 @@
-Step 1: Create Redis Master Deployment
+# Step 1: Create Redis Master Deployment
 
 ```
 cat <<EOF | kubectl apply -f -
@@ -32,7 +32,7 @@ EOF
 
 ![alt text](image.png)
 
-Step 2: Create Redis Master Service
+# Step 2: Create Redis Master Service
 
 ```
 cat <<EOF | kubectl apply -f -
@@ -52,7 +52,7 @@ EOF
 
 ![alt text](image-1.png)
 
-Step 3: Create Redis Slave Deployment
+# Step 3: Create Redis Slave Deployment
 
 ```
 cat <<EOF | kubectl apply -f -
@@ -89,7 +89,7 @@ EOF
 
 ![alt text](image-2.png)
 
-Step 4: Create Redis Slave Service
+# Step 4: Create Redis Slave Service
 
 ```
 cat <<EOF | kubectl apply -f -
@@ -109,7 +109,7 @@ EOF
 
 ![alt text](image-3.png)
 
-Step 5: Create Frontend Deployment
+# Step 5: Create Frontend Deployment
 
 ```
 cat <<EOF | kubectl apply -f -
@@ -146,7 +146,7 @@ EOF
 
 ![alt text](image-4.png)
 
-Step 6: Create Frontend Service
+# Step 6: Create Frontend Service
 
 ```
 cat <<EOF | kubectl apply -f -
@@ -168,7 +168,7 @@ EOF
 
 ![alt text](image-5.png)
 
-Step 7: Verification
+# Step 7: Verification
 Check all deployments by one:
 
 
