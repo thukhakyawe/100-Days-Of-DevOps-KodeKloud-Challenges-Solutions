@@ -2,31 +2,31 @@
 
 Login to Jenkins:
 
-    Click the "Jenkins" button on the top bar
+Click the "Jenkins" button on the top bar
 
-    Login with credentials:
+Login with credentials:
 
-        Username: admin
+Username: admin
 
-        Password: Adm!n321
+Password: Adm!n321
 
 ![alt text](image.png)
 
 Install SSH Plugin (if needed):
 
-    Go to "Manage Jenkins" → "Manage Plugins"
+Go to "Manage Jenkins" → "Manage Plugins"
 
-    Go to the "Available" tab
+Go to the "Available" tab
 
 Go to Available tab and search for the following plugins:
 
-    SSH
+SSH
 
-    SSH Credentials
+SSH Credentials
 
-    SSH Build Agents
+SSH Build Agents
 
-    SSH Agents
+SSH Agents
 
 Install all plugins and restart Jenkins if required
 
@@ -38,27 +38,27 @@ Install all plugins and restart Jenkins if required
 
 # Step 2: Configure SSH Credentials
 
-    Go to Manage Jenkins → Credentials
+Go to Manage Jenkins → Credentials
 
-    Click on Global credentials (unrestricted)
+Click on Global credentials (unrestricted)
 
-    Click Add Credentials
+Click Add Credentials
 
-    Configure SSH credentials:
+Configure SSH credentials:
 
-        Kind: SSH Username with private key
+Kind: SSH Username with private key
 
-        Scope: Global
+Scope: Global
 
-        ID: storage-server-credentials
+ID: storage-server-credentials
 
-        Description: Credentials for storage server
+Description: Credentials for storage server
 
-        Username: natasha
+Username: natasha
 
-        Password: Bl@kW
+Password: Bl@kW
 
-    Save credentials
+Save credentials
 
 ![alt text](image-3.png)
 
@@ -70,62 +70,62 @@ Install all plugins and restart Jenkins if required
 
 # Step 3: Configure SSH Server Connection
 
-    Go to Manage Jenkins → Configure System
+Go to Manage Jenkins → Configure System
 
-    Scroll down to SSH remote hosts section
+Scroll down to SSH remote hosts section
 
-    Add SSH Server with following configuration:
+Add SSH Server with following configuration:
 
-        Hostname: ststor01.stratos.xfusioncorp.com
+Hostname: ststor01.stratos.xfusioncorp.com
 
-        Port: 22
+Port: 22
 
-        Credentials: storage-server-credentials (select from dropdown)
+Credentials: storage-server-credentials (select from dropdown)
 
-        JavaPath: (leave default)
+JavaPath: (leave default)
 
-    Click Test Connection to verify
+Click Test Connection to verify
 
-    Save the configuration
+Save the configuration
 
 ![alt text](image-7.png)
 
 
 # Step 4: Create Jenkins Job
 
-    Click New Item on Jenkins dashboard
+Click New Item on Jenkins dashboard
 
-    Enter job name: install-packages
+Enter job name: install-packages
 
-    Select Freestyle project and click OK
+Select Freestyle project and click OK
 
 ![alt text](image-8.png)
 
 # Step 5: Configure Job Parameters
 
-    Check This project is parameterized
+Check This project is parameterized
 
-    Add String Parameter:
+Add String Parameter:
 
-        Name: PACKAGE
+Name: PACKAGE
 
-        Description: Package to install on storage server
+Description: Package to install on storage server
 
-        Default Value: (leave empty)
+Default Value: (leave empty)
 
 ![alt text](image-9.png)
 
 # Step 6: Configure Build Step
 
-    Under Build section, click Add build step
+Under Build section, click Add build step
 
-    Select Execute shell script on remote host using ssh
+Select Execute shell script on remote host using ssh
 
-    Configure:
+Configure:
 
-         SSH site: "natasha@ststor01.stratos.xfusioncorp.com:22"
+SSH site: "natasha@ststor01.stratos.xfusioncorp.com:22"
 
-         Command: 
+Command: 
          
 ```
 #!/bin/bash
@@ -154,7 +154,7 @@ else
 fi
 ```
 
-         Save
+Click Save
 
 
 ![alt text](image-10.png)
