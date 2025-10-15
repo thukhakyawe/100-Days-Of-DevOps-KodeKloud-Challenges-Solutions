@@ -1,4 +1,4 @@
-Step 1: Create the Namespace
+# Step 1: Create the Namespace
 
 First, create the namespace:
 
@@ -9,7 +9,7 @@ kubectl create namespace iron-namespace-xfusion
 ![alt text](image-1.png)
 
 
-Step 2: Create the Iron Gallery Deployment
+# Step 2: Create the Iron Gallery Deployment
 
 Create a file named iron-gallery-deployment.yaml:
 
@@ -52,7 +52,7 @@ spec:
         emptyDir: {}
 ```
 
-Step 3: Create the Iron DB Deployment
+# Step 3: Create the Iron DB Deployment
 
 Create a file named iron-db-deployment.yaml:
 
@@ -97,7 +97,7 @@ spec:
 ```
 
 
-Step 4: Create the Iron DB Service
+# Step 4: Create the Iron DB Service
 
 Create a file named iron-db-service.yaml:
 
@@ -121,7 +121,7 @@ spec:
   type: ClusterIP
 ```
 
-Step 5: Create the Iron Gallery Service
+# Step 5: Create the Iron Gallery Service
 
 Create a file named iron-gallery-service.yaml:
 
@@ -146,7 +146,7 @@ spec:
     nodePort: 32678
 ```
 
-Step 6: Deploy All Resources
+# Step 6: Deploy All Resources
 
 Now apply all the configurations:
 
@@ -160,7 +160,7 @@ kubectl apply -f iron-gallery-service.yaml
 
 ![alt text](image.png)
 
-Step 7: Verification
+# Step 7: Verification
 
 Check if all resources are created successfully one by one:
 
@@ -187,7 +187,7 @@ kubectl get services -n iron-namespace-xfusion
 
 ![alt text](image-2.png)
 
-Step 8: Testing the Application
+# Step 8: Testing the Application
 
 Once the pods are running, you can test the Iron Gallery application:
 
