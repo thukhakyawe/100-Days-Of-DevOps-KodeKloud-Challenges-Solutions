@@ -1,6 +1,7 @@
-Step 1: Create the ConfigMap
+# Step 1: Create the ConfigMap
 
 # Create the Redis configuration ConfigMap
+```
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: ConfigMap
@@ -10,10 +11,12 @@ data:
   redis-config: |
     maxmemory 2mb
 EOF
+```
 
-Step 2: Create the Redis Deployment
+# Step 2: Create the Redis Deployment
 
 # Create the Redis deployment with all specified requirements
+```
 cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
@@ -49,21 +52,30 @@ spec:
         configMap:
           name: my-redis-config
 EOF
+```
 
- Step 3: Verification
+# Step 3: Verification
 Check if everything is created properly:
 
 # Verify ConfigMap
+```
 kubectl get configmap my-redis-config
+```
 
 # Verify Deployment
+```
 kubectl get deployment redis-deployment
+```
 
 # Verify Pod status
+```
 kubectl get pods -l app=redis
+```
 
 # Check pod details
+```
 kubectl describe pod -l app=redis
+```
 
 ![alt text](image.png)
 
@@ -72,21 +84,29 @@ kubectl describe pod -l app=redis
 Verify the configuration is mounted correctly:
 
 # Check if the config file is mounted
+```
 POD_NAME=$(kubectl get pods -l app=redis -o jsonpath='{.items[0].metadata.name}')
 kubectl exec $POD_NAME -- ls -la /redis-master/
+```
 
 
 # Check the content of the config file
+```
 kubectl exec $POD_NAME -- cat /redis-master/redis-config
+```
 
 ![alt text](image-2.png)
 
 Test Redis functionality:
 
 # Test if Redis is running and accepting connections
+```
 kubectl exec $POD_NAME -- redis-cli ping
+```
 
 # Check Redis info
+```
 kubectl exec $POD_NAME -- redis-cli info memory | grep maxmemory
+```
 
 ![alt text](image-3.png)
