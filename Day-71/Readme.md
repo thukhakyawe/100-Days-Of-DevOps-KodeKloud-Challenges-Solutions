@@ -161,11 +161,11 @@ fi
 
 # Step 7: Save and Test Job
 
-    Click Build with Parameters
+Click Build with Parameters
 
-    Enter package name (e.g., nginx) and click Build
+Enter package name (e.g., nginx) and click Build
 
-    Check console output for success/failure
+Check console output for success/failure
 
 ![alt text](image-11.png)
 
