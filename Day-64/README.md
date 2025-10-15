@@ -1,4 +1,4 @@
-Step 1: Check Basic Resource Status
+# Step 1: Check Basic Resource Status
 
 # 1. Check if deployment exists and its status
 ```
@@ -18,7 +18,7 @@ kubectl get pods
 
 ![alt text](image.png)
 
-Step 2: Check Pod Details
+# Step 2: Check Pod Details
 
 # 4. Check detailed pod status
 ```
@@ -32,7 +32,7 @@ kubectl get pods --show-labels | grep python
 
 ![alt text](image-1.png)
 
-Step 3: Investigate Deployment Configuration
+# Step 3: Investigate Deployment Configuration
 
 # 6. Check what image the deployment is using
 ```
@@ -46,7 +46,7 @@ kubectl get deployment python-deployment-nautilus -o jsonpath='{.spec.template.s
 
 ![alt text](image-2.png)
 
-Step 4: Check for Errors
+# Step 4: Check for Errors
 
 # 8. Check deployment events for errors
 ```
@@ -104,7 +104,7 @@ EOF
 
 ![alt text](image-12.png)
 
-# 4. Check what port was assigned
+# Check what port was assigned
 ```
 kubectl get service python-service-nautilus 
 ```
