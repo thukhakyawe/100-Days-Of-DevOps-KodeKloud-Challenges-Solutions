@@ -12,7 +12,7 @@ ssh root@jenkins
 ```
 yum install wget -y
 wget -O /etc/yum.repos.d/jenkins.repo \
-    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+https://pkg.jenkins.io/redhat-stable/jenkins.repo
 rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 yum upgrade -y
 ```
@@ -52,19 +52,19 @@ cat /var/lib/jenkins/secrets/initialAdminPassword
 
 # Access Jenkins Web UI
 
-    Click the "Jenkins" button on the top bar to access Jenkins UI
+Click the "Jenkins" button on the top bar to access Jenkins UI
 
-    Enter the initial admin password from Step 4
+Enter the initial admin password from Step 4
 
-    Follow the setup wizard and create the admin user with these details:
+Follow the setup wizard and create the admin user with these details:
 
-        Username: theadmin
+Username: theadmin
 
-        Password: Adm!n321
+Password: Adm!n321
 
-        Full name: Ravi
+Full name: Ravi
 
-        Email: ravi@jenkins.stratos.xfusioncorp.coma
+Email: ravi@jenkins.stratos.xfusioncorp.coma
 
 ![alt text](image-8.png)
 
