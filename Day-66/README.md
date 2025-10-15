@@ -1,23 +1,30 @@
-Step 1: Create the Secrets
+# Step 1: Create the Secrets
 
 # Create mysql-root-pass secret
+```
 kubectl create secret generic mysql-root-pass \
   --from-literal=password=YUIidhb667
+```
 
 # Create mysql-user-pass secret
+```
 kubectl create secret generic mysql-user-pass \
   --from-literal=username=kodekloud_tim \
   --from-literal=password=YchZHRcLkL
+```
 
 # Create mysql-db-url secret
+```
 kubectl create secret generic mysql-db-url \
   --from-literal=database=kodekloud_db1
+```
 
 ![alt text](image.png)
 
-Step 2: Create the PersistentVolume
+# Step 2: Create the PersistentVolume
 
 # Create PersistentVolume mysql-pv
+```
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolume
@@ -33,12 +40,14 @@ spec:
   hostPath:
     path: "/mnt/mysql-data"
 EOF
+```
 
 ![alt text](image-1.png)
 
-Step 3: Create the PersistentVolumeClaim
+# Step 3: Create the PersistentVolumeClaim
 
 # Create PersistentVolumeClaim mysql-pv-claim
+```
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -52,12 +61,14 @@ spec:
     requests:
       storage: 250Mi
 EOF
+```
 
 ![alt text](image-2.png)
 
-Step 4: Create the MySQL Deployment
+# Step 4: Create the MySQL Deployment
 
 # Create mysql-deployment with all environment variables and volume mounts
+```
 cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
@@ -109,12 +120,14 @@ spec:
         persistentVolumeClaim:
           claimName: mysql-pv-claim
 EOF
+```
 
 ![alt text](image-3.png)
 
-Step 5: Create the MySQL Service
+# Step 5: Create the MySQL Service
 
 # Create NodePort service mysql
+```
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Service
@@ -129,39 +142,55 @@ spec:
   selector:
     app: mysql
 EOF
+```
 
 ![alt text](image-4.png)
 
-Step 6: Verification
+# Step 6: Verification
+
 Check all created resources:
 
 # Verify secrets
+```
 kubectl get secrets
+```
 
 # Verify PersistentVolume and PersistentVolumeClaim
+```
 kubectl get pv
 kubectl get pvc
+```
 
 # Verify deployment and pods
+```
 kubectl get deployment mysql-deployment
 kubectl get pods -l app=mysql
+```
 
 # Verify service
+```
 kubectl get service mysql
+```
 
 ![alt text](image-5.png)
 
 Check if MySQL is running properly:
 
 # Get pod name
+```
 POD_NAME=$(kubectl get pods -l app=mysql -o jsonpath='{.items[0].metadata.name}')
+```
 
 # Check pod logs
+```
 kubectl logs $POD_NAME
+```
 
 ![alt text](image-6.png)
 
 # Check if MySQL is ready (this might take a minute)
+```
 kubectl exec $POD_NAME -- mysql -u root -pYUIidhb667 -e "SHOW DATABASES;"
+```
 
 ![alt text](image-7.png)
