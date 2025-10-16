@@ -2,17 +2,17 @@
 
 First, let's check the current state and revision history:
 
-# Check current deployment status
+### Check current deployment status
 ```
 kubectl get deployment nginx-deployment
 ```
 
-# Check current pods and their images
+### Check current pods and their images
 ```
 kubectl get pods -l 
 ```
 
-# Check the rollout history
+### Check the rollout history
 ```
 kubectl rollout history deployment nginx-deployment
 ```
@@ -21,7 +21,7 @@ kubectl rollout history deployment nginx-deployment
 
 # Step 2: View Detailed Rollout History
 
-# Get detailed revision history with changes
+### Get detailed revision history with changes
 ```
 kubectl rollout history deployment nginx-deployment --revision=2
 kubectl rollout history deployment nginx-deployment --revision=1
@@ -32,19 +32,19 @@ kubectl rollout history deployment nginx-deployment --revision=1
 # Step 3: Perform the Rollback
 
 
-# Rollback to the previous revision
+### Rollback to the previous revision
 ```
 kubectl rollout undo deployment nginx-deployment
 ```
 
 # Step 4: Monitor the Rollback
 
-# Monitor the rollback progress
+### Monitor the rollback progress
 ```
 kubectl rollout status deployment nginx-deployment --timeout=300s
 ```
 
-# Watch the pods during rollback
+### Watch the pods during rollback
 ```
 kubectl get pods -l 
 ```
@@ -54,7 +54,7 @@ kubectl get pods -l
 kubectl get deployment nginx-deployment -o jsonpath='{.spec.template.spec.containers[0].image}' && echo
 ```
 
-# Check rollout history to confirm rollback
+### Check rollout history to confirm rollback
 ```
 kubectl rollout history deployment nginx-deployment
 ```
