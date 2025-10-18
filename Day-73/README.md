@@ -27,13 +27,13 @@ Install and restart Jenkins if prompted
 
 ![alt text](image-1.png)
 
-Step 3: Configure SSH Credentials
+# Step 3: Configure SSH Credentials
 
-    Go to Manage Jenkins → Manage Credentials
+Go to Manage Jenkins → Manage Credentials
 
-    Click on Global credentials (unrestricted)
+Click on Global credentials (unrestricted)
 
-    Click Add Credentials
+Click Add Credentials
 
 Create Credentials for App Server 1:
 
@@ -46,8 +46,6 @@ ID: app-server-1-credentials
 Description: Credentials for App Server 1 - tony
 
 Username: tony
-
-Private Key: Enter directly
 
 Passphrase: Ir0nM@n
 
@@ -65,17 +63,15 @@ Description: Credentials for Storage Server - natasha
 
 Username: natasha
 
-Private Key: Enter directly
-
 Passphrase: Bl@kW
 
 ![alt text](image-2.png)
 
-Step 4: Configure SSH Sites
+# Step 4: Configure SSH Sites
 
-    Go to Manage Jenkins → Configure System
+Go to Manage Jenkins → Configure System
 
-    Scroll down to SSH remote hosts section
+Scroll down to SSH remote hosts section
 
 Configure App Server 1 SSH Site:
 
@@ -86,8 +82,6 @@ Hostname: stapp01.stratos.xfusioncorp.com
 Port: 22
 
 Credentials: app-server-1-credentials (select from dropdown)
-
-JavaPath: (leave default)
 
 Test Connection → Save
 
@@ -101,15 +95,13 @@ Port: 22
 
 Credentials: storage-server-credentials (select from dropdown)
 
-JavaPath: (leave default)
-
 Test Connection → Save
 
 ![alt text](image-3.png)
 
 ![alt text](image-4.png)
 
-Step 5: Create Jenkins Job
+# Step 5: Create Jenkins Job
 
 Click New Item on Jenkins dashboard
 
@@ -121,15 +113,16 @@ Click OK
 
 ![alt text](image-5.png)
 
-Step 6: Configure Build Triggers
+# Step 6: Configure Build Triggers
 
-    Check Build periodically
+Check Build periodically
 
-    Enter cron expression: */11 * * * * (runs every 11 minutes)
+Enter cron expression: */11 * * * * (runs every 11 minutes)
 
 ![alt text](image-6.png)   
 
-Step 7: Configure Build Steps
+# Step 7: Configure Build Steps
+
 Build Step 1: Copy Logs from App Server 1
 
 Under Build, click Add build step
@@ -187,7 +180,7 @@ echo "=== Log transfer completed ==="
 
 
 
-Step 8: Save and Test
+# Step 8: Save and Test
 
 Click Save to create the job
 
@@ -198,7 +191,9 @@ Monitor Console Output
 ![alt text](image-7.png)
 
 # Check files on Storage Server
+```
 ssh natasha@ststor01 "ls -la /usr/src/finance/"
+```
 
 
 ![alt text](image-8.png)
