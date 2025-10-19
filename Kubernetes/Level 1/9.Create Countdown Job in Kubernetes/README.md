@@ -90,6 +90,6 @@ kubectl describe pod countdown-xfusion-s52nf
 
 For more detailed information about the job:
 ```
-kubectl describe job countdown-xfusiona
+kubectl describe job countdown-xfusion
 ```
 ![alt text](image-4.png)
