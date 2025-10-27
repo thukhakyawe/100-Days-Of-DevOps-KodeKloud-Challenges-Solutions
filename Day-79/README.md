@@ -4,6 +4,7 @@ sudo yum install -y httpd
 ```
 
 ![alt text](image.png)
+
 ```
 cat /etc/httpd/conf/httpd.conf | grep Listen
 sudo sed  -i 's/^Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
@@ -34,9 +35,9 @@ Select `Git` and Install
 
 Dashboard > Manage Jenkins > Credentials > System > Global credentials (unrestricted)
 
-Username : sarah
-Password : Sarah_pass123
-ID : sarah
+- Username : sarah
+- Password : Sarah_pass123
+- ID : sarah
 
 
 ![alt text](image-4.png)
