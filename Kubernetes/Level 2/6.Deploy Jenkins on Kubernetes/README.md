@@ -128,3 +128,5 @@ kubectl describe svc jenkins-service -n jenkins
 ```
 
 ![alt text](image-6.png)
+
+***
