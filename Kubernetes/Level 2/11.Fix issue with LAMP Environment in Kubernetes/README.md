@@ -419,8 +419,8 @@ Typo in Environment Variables
 <?php
 $dbname = $_ENV['MYSQL_DATABASE'];
 $dbuser = $_ENV['MYSQL_USER'];
-$dbpass = $_ENV[''MYSQL_PASSWORD""];
-$dbhost = $_ENV['MYSQL-HOST'];
+$dbpass = $_ENV['MYSQL_PASSWORD'];
+$dbhost = $_ENV['MYSQL_HOST'];
 
 
 $connect = mysqli_connect($dbhost, $dbuser, $dbpass) or die("Unable to Connect to '$dbhost'");
