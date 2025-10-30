@@ -1,0 +1,18 @@
+
+
+As part of the data migration process, the Nautilus DevOps team is actively creating several S3 buckets on AWS. They plan to utilize both private and public S3 buckets to store the relevant data. Given the ongoing migration of other infrastructure to AWS, it is logical to consolidate data storage within the AWS environment as well.
+
+    Create a public S3 bucket named devops-s3-17460 using Terraform.
+
+    Ensure the bucket is accessible publicly once created by setting the proper ACL.
+
+    The Terraform working directory is /home/bob/terraform. Create the main.tf file (do not create a different .tf file) to accomplish this task.
+
+Notes:
+
+    Create the resources only in the us-east-1 region.
+    Right-click under the EXPLORER section in VS Code and select Open in Integrated Terminal to launch the terminal.
+    The name of the S3 bucket should be based on devops-s3-17460.
+    You can use the ACL settings to ensure the bucket is publicly accessible.
+
+
