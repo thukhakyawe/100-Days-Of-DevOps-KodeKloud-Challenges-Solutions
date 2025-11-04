@@ -197,3 +197,5 @@ kubectl logs envars -f
 Press Ctrl+C to exit the log view.
 
 ![alt text](image-5.png)
+
+***
