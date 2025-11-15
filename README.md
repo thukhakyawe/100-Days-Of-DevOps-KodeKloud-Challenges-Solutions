@@ -1,6 +1,6 @@
-🚀 100 Days of DevOps by KodeKloud - 2025 Challenged Complete
+🚀 100 Days of DevOps by KodeKloud - 2025 
 
-![alt text](<100 Days of DevOps.jpg>)
+
 
 A hands-on 100-day DevOps challenge through KodeKloud Engineer platform, featuring daily practical tasks and real-world scenarios.
 
@@ -262,3 +262,14 @@ Phase 7: Terraform & Cloud Infrastructure (Days 94-100)
 ⭐ Follow along with the daily progress!
 
 "One task at a time, one day at a time - building DevOps expertise through consistent practice."
+
+
+# Challenge Progress
+
+**100%**
+
+## Challenge Completed
+
+**Successfully completed the 100 Days of DevOps Challenge!**
+
+![alt text](<100 Days of DevOps.jpg>)
