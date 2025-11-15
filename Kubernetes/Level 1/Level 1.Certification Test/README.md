@@ -983,8 +983,8 @@ kubectl run test-curl --image=nginx:latest --rm -it --restart=Never -- bash -c "
 
 ![alt text](image-40.png)
 
-===================================
+---
 
 [KodeKloud Certificate-Kubernetes - Level 1](https://engineer.kodekloud.com/certificate-verification/79e60b52-866a-4469-a3b9-6281b52ed3b6)
 
-![alt text](image-41.png)
+![alt text](kodekloud-course-completion-certificate.png)

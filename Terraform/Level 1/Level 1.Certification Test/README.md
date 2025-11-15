@@ -1399,3 +1399,7 @@ vpc_name = "datacenter-vpc-t5q2"
 ```
 
 ---
+
+[KodeKloud Certificate-Terraform- Level 1](https://engineer.kodekloud.com/certificate-verification/8828142c-b330-460a-8596-08d30dff0677)
+
+![alt text](KodeKloud_Course_Terraform_Certificate.png)
