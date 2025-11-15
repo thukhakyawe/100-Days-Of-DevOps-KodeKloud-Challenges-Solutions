@@ -1,4 +1,6 @@
-🚀 100 Days of DevOps by KodeKloud - 2025
+🚀 100 Days of DevOps by KodeKloud - 2025 Challenged Complete
+
+![alt text](<100 Days of DevOps.jpg>)
 
 A hands-on 100-day DevOps challenge through KodeKloud Engineer platform, featuring daily practical tasks and real-world scenarios.
 
