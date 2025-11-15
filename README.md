@@ -266,10 +266,11 @@ Phase 7: Terraform & Cloud Infrastructure (Days 94-100)
 
 # Challenge Progress
 
-**100%**
+🟢 **100%** ✅
 
-## Challenge Completed
+## 🏆 Challenge Completed 
 
-**Successfully completed the 100 Days of DevOps Challenge!**
+**Successfully completed the 100 Days of DevOps Challenge!** 🎉
+
 
 ![alt text](<100 Days of DevOps.jpg>)
