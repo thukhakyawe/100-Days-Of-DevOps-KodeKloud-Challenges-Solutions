@@ -204,4 +204,8 @@ git branch
 git checkout master
 ```
 
+***
+
+# KodeKloud Certificate
+
 ![alt text](kodekloud-course-completion-certificate.png)
