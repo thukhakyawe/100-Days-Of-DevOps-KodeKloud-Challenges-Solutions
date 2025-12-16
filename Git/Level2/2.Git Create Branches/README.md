@@ -22,8 +22,6 @@ git status
 You should see something like:
 To add an exception for this directory, call:
 
-        git config --global --add safe.directory /usr/src/kodekloudrepos/media
-
 ```
 git config --global --add safe.directory /usr/src/kodekloudrepos/media
 ```
