@@ -12,13 +12,15 @@ resource "aws_instance" "devops_ec2" {
   tags = {
     Name = "${var.KKE_INSTANCE_PREFIX}-${count.index + 1}"
   }
-}```
+}
+```
 
 2️⃣ variables.tf
 
 Use exact variable names
 
-```variable "KKE_INSTANCE_COUNT" {
+```
+variable "KKE_INSTANCE_COUNT" {
   type = number
 }
 
@@ -32,13 +34,15 @@ variable "KKE_KEY_NAME" {
 
 variable "KKE_INSTANCE_PREFIX" {
   type = string
-}```
+}
+```
 
 3️⃣ locals.tf
 
 Retrieve latest Amazon Linux 2 AMI
 
-```data "aws_ami" "amazon_linux_2" {
+```
+data "aws_ami" "amazon_linux_2" {
   most_recent = true
 
   owners = ["amazon"]
@@ -51,7 +55,8 @@ Retrieve latest Amazon Linux 2 AMI
 
 locals {
   AMI_ID = data.aws_ami.amazon_linux_2.id
-}```
+}
+```
 
 
 📌 This satisfies:
@@ -66,21 +71,25 @@ locals {
 
 Assign values here
 
-```KKE_INSTANCE_COUNT  = 3
+```
+KKE_INSTANCE_COUNT  = 3
 KKE_INSTANCE_TYPE   = "t2.micro"
 KKE_KEY_NAME        = "devops-key"
-KKE_INSTANCE_PREFIX = "devops-instance"```
+KKE_INSTANCE_PREFIX = "devops-instance"
+```
 
 5️⃣ outputs.tf
 
 Output instance names
 
-```output "kke_instance_names" {
+```
+output "kke_instance_names" {
   value = [
     for instance in aws_instance.devops_ec2 :
     instance.tags["Name"]
   ]
-}```
+}
+```
 
 6️⃣ Terraform Commands (REQUIRED FOR KODEKLOUD)
 
