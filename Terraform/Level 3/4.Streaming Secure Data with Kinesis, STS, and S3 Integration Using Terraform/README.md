@@ -348,41 +348,6 @@ Each resource was created successfully
 
 The correct names were used
 
-Step 7: Outputs for Verification
-
-Terraform outputs:
-
-The AWS account ID
-
-The Kinesis stream name
-
-The S3 bucket name
-
-These outputs make it easy to confirm that everything was created correctly.
-
-Final Result
-
-After running:
-
-terraform apply
-terraform plan
-
-
-Terraform reports:
-
-No changes. Your infrastructure matches the configuration.
-
-
-This means:
-
-All required resources exist
-
-All required tags are present
-
-Terraform is stable and idempotent
-
-The lab requirements are fully satisfied
-
 Key Takeaway
 
 In LocalStack labs, Terraform’s job is to create resources correctly once.
