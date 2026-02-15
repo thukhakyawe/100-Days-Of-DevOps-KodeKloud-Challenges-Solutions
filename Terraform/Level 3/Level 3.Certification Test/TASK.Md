@@ -79,6 +79,3 @@ The module directory /home/bob/terraform/t3q1/modules/s3-static-site/ is already
 
 ---
 
-[KodeKloud Certificate-Terraform- Level 2](https://engineer.kodekloud.com/certificate-verification/b276c669-177f-4951-843c-02bd51f43218)
-
-![alt text](kodekloud-course-completion-certificate.png)

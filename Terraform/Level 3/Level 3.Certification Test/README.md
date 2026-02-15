@@ -1060,3 +1060,7 @@ Printed the website URL
 All in the correct order.
 
 ---
+
+[KodeKloud Certificate-Terraform- Level 3](https://engineer.kodekloud.com/certificate-verification/b276c669-177f-4951-843c-02bd51f43218)
+
+![alt text](kodekloud-course-completion-certificate.png)
