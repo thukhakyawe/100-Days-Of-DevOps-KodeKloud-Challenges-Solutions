@@ -77,5 +77,8 @@ The module directory /home/bob/terraform/t3q1/modules/s3-static-site/ is already
 
     Upload the index.html file from /home/bob/terraform/t3q1 directory to the S3 bucket. This can be done using either the AWS CLI or Terraform (aws_s3_object).
 
-
 ---
+
+[KodeKloud Certificate-Terraform- Level 2](https://engineer.kodekloud.com/certificate-verification/b276c669-177f-4951-843c-02bd51f43218)
+
+![alt text](kodekloud-course-completion-certificate.png)
