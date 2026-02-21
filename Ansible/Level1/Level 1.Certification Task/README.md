@@ -1752,3 +1752,7 @@ I learned:
 ✔ How to debug simple syntax issues
 
 ---
+
+[KodeKloud Certificate-Ansible-Level 1](https://engineer.kodekloud.com/certificate-verification/a73bed13-dbb4-4e6d-8c1a-6a979c636f12)
+
+![alt text](kodekloud-course-completion-certificate.png)
