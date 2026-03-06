@@ -31,11 +31,8 @@ sudo yum install -y cronie
 
 ```
 sudo systemctl start crond
-```
-
-(Optional but good practice)
-
 sudo systemctl enable crond
+```
 
 5️⃣ Add root cron job (FAST METHOD)
 
@@ -47,7 +44,9 @@ echo "*/5 * * * * echo hello > /tmp/cron_text" | sudo crontab -
 
 Verify:
 
+```
 sudo crontab -l
+```
 
 Expected:
 
@@ -65,9 +64,11 @@ Am3ric@
 
 Run:
 
+```
 sudo yum install -y cronie
 sudo systemctl start crond
 echo "*/5 * * * * echo hello > /tmp/cron_text" | sudo crontab -
+```
 
 Configure App Server 3
 
@@ -87,10 +88,7 @@ sudo systemctl start crond
 echo "*/5 * * * * echo hello > /tmp/cron_text" | sudo crontab -
 ```
 
-
-
-
-
+---
 
 🧠 Part 2: Simple Explanation (Beginner Friendly)
 
