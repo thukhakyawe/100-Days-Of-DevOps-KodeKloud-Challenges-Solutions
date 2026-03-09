@@ -17,7 +17,9 @@ This is done using SSH key authentication.
 
 1️⃣ Login to Jump Host
 
+```
 ssh thor@jump_host.stratos.xfusioncorp.com
+```
 
 Password
 
@@ -27,11 +29,15 @@ mjolnir123
 
 Check if a key already exists:
 
+```
 ls ~/.ssh
+```
 
 If no id_rsa exists, create one:
 
+```
 ssh-keygen
+```
 
 Press Enter for all prompts.
 
@@ -42,7 +48,9 @@ Resulting files:
 
 3️⃣ Copy Key to App Server 1
 
+```
 ssh-copy-id tony@stapp01
+```
 
 Password:
 
@@ -50,7 +58,9 @@ Ir0nM@n
 
 Test it:
 
+```
 ssh tony@stapp01
+```
 
 You should not be asked for a password.
 
@@ -60,7 +70,9 @@ exit
 
 4️⃣ Copy Key to App Server 2
 
+```
 ssh-copy-id steve@stapp02
+```
 
 Password:
 
@@ -68,7 +80,9 @@ Am3ric@
 
 Test:
 
+```
 ssh steve@stapp02
+```
 
 Exit:
 
@@ -76,7 +90,9 @@ exit
 
 5️⃣ Copy Key to App Server 3
 
+```
 ssh-copy-id banner@stapp03
+```
 
 Password:
 
@@ -84,7 +100,9 @@ BigGr33n
 
 Test:
 
+```
 ssh banner@stapp03
+```
 
 Exit:
 
@@ -94,9 +112,11 @@ exit
 
 Run:
 
+```
 ssh tony@stapp01 hostname
 ssh steve@stapp02 hostname
 ssh banner@stapp03 hostname
+```
 
 If configured correctly:
 
