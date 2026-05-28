@@ -71,7 +71,7 @@ vi compare.py
 Paste the following code:
 
 ```
-iimport os
+import os
 from openai import OpenAI
 
 # Initialize OpenAI client
