@@ -76,7 +76,7 @@ Step 4 — Open the Python File
 Edit the file:
 
 ```
-nano commit_generator.py
+vi commit_generator.py
 ```
 
 Replace everything with:
@@ -134,9 +134,7 @@ if __name__ == "__main__":
 
 Save and exit:
 
-CTRL + X
-Y
-ENTER
+
 
 Step 5 — Load Environment Variables
 

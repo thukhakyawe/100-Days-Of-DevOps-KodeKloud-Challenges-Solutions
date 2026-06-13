@@ -84,7 +84,7 @@ Use the actual variable names that exist in your environment.
 Step 5 — Edit quiz_generator.py
 
 ```
-nano /root/openaiproject/quiz_generator.py
+vi /root/openaiproject/quiz_generator.py
 ```
 
 Replace the contents with:
@@ -150,9 +150,7 @@ if __name__ == "__main__":
 
 Save and exit:
 
-CTRL + X
-Y
-ENTER
+
 
 Step 6 — Run the Script
 

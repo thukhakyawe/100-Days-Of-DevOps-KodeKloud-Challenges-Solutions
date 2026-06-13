@@ -77,7 +77,7 @@ Use the actual variable names that exist in your environment.
 Step 4 — Edit sentiment_analyzer.py
 
 ```
-nano /root/openaiproject/sentiment_analyzer.py
+vi /root/openaiproject/sentiment_analyzer.py
 ```
 
 Replace the contents with:
@@ -135,9 +135,7 @@ if __name__ == "__main__":
 
 Save and exit:
 
-CTRL + X
-Y
-ENTER
+
 
 Step 5 — Run the Script
 

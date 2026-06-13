@@ -82,7 +82,7 @@ If so, use OPENAI_API_BASE in your code.
 Step 5 — Edit log_analyzer.py
 
 ```
-nano /root/openaiproject/log_analyzer.py
+vi /root/openaiproject/log_analyzer.py
 ```
 
 Replace the file contents with:
@@ -139,9 +139,7 @@ if __name__ == "__main__":
 
 Save:
 
-CTRL + X
-Y
-ENTER
+
 
 Step 6 — Run the Script
 
