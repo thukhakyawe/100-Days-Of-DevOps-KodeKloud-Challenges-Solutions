@@ -263,83 +263,306 @@ ls -l web_scraper.py
 
 🧠 Part 2: Simple Step-by-Step Explanations (Beginner Friendly)
 
-- What are we building?
+Step 1: Import the required libraries
 
-This lab creates a simple two-stage AI pipeline:
+import os
+from openai import OpenAI
+
+What this does:
+
+os lets us access environment variables and change directories.
+OpenAI is the Python client used to communicate with the AI model.
+
+Step 2: Create the OpenAI client
+api_key = os.environ.get("OPENAI_API_KEY")
+base_url = os.environ.get("OPENAI_API_BASE")
+
+client = OpenAI(
+    api_key=api_key,
+    base_url=base_url
+)
+
+What this does:
+
+Reads the API credentials from the environment variables loaded from /root/.bash_profile.
+Creates a client that will send requests to the OpenAI-compatible API.
+
+Think of the client as the "connection" between your Python program and the AI service.
+
+Step 3: Set the model name
+MODEL_NAME = "openai/gpt-4.1-mini"
+
+What this does:
+
+Instead of typing the model name multiple times, we store it in one variable.
+
+This makes the code easier to maintain if the model changes later.
+
+Function 1: generate_code()
+
+Step 4: Read the requirements file
+with open(requirements_path, "r", encoding="utf-8") as req_file:
+    requirements_content = req_file.read()
+
+What this does:
+
+This opens requirements.txt and reads all of its contents into a variable.
+
+Example:
+
+Create a Python scraper...
+
+The AI will use these requirements to generate code.
+
+Step 5: Build the prompt
+prompt = (
+    f"Based on these requirements:\n{requirements_content}\n\n"
+    "Write a Python script..."
+)
+
+What this does:
+
+Creates the instruction that will be sent to the AI.
+
+The prompt contains:
+
+the requirements file
+the coding task
+instructions to return only raw Python code
+
+Step 6: Ask the AI to generate code
+response = client.chat.completions.create(
+    model=MODEL_NAME,
+    temperature=0.0,
+    messages=[
+        {"role": "user", "content": prompt}
+    ]
+)
+
+What this does:
+
+Sends the prompt to the AI.
+
+Why temperature=0.0?
+
+Produces consistent and predictable code.
+Reduces randomness.
+
+Step 7: Extract the generated code
+generated_code = response.choices[0].message.content.strip()
+
+What this does:
+
+Retrieves only the AI-generated Python code from the response.
+
+Step 8: Remove Markdown code fences
+
+Sometimes AI responds like this:
+
+```python
+import requests
+...
+```
+
+This section removes the Markdown formatting so that only valid Python code is saved.
+
+Step 9: Save the generated code
+
+with open(output_path, "w", encoding="utf-8") as out_file:
+    out_file.write(generated_code)
+
+What this does:
+
+Creates the file:
+
+web_scraper.py
+
+and writes the generated Python code into it.
+
+Function 2: review_code()
+
+Step 10: Read the generated Python file
+
+with open(code_path, "r", encoding="utf-8") as code_file:
+    generated_code_content = code_file.read()
+
+What this does:
+
+Reads the entire contents of web_scraper.py.
+
+The reviewer AI will inspect this code.
+
+Step 11: Create the review prompts
+system_prompt = (
+    "You are a senior security architect..."
+)
+user_prompt = f"Here is the code to review:\n\n{generated_code_content}"
+
+What this does:
+
+There are two prompts:
+
+System Prompt tells the AI how to behave (as a security reviewer).
+User Prompt provides the generated Python code to analyze.
+
+The AI is instructed to return only raw JSON.
+
+Step 12: Ask the AI to review the code
+
+response = client.chat.completions.create(
+    model=MODEL_NAME,
+    temperature=0.5,
+    messages=[
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt}
+    ]
+)
+
+What this does:
+
+Sends the generated code to the AI for a security review.
+
+Why temperature=0.5?
+
+Allows slightly more flexibility in identifying vulnerabilities and best-practice issues.
+Produces varied but relevant review findings.
+
+Step 13: Extract the JSON response
+review_output = response.choices[0].message.content.strip()
+
+What this does:
+
+Retrieves the AI's review output.
+
+Example:
+
+{
+  "findings": [
+    "Missing User-Agent header",
+    "No timeout specified"
+  ]
+}
+
+Step 14: Remove Markdown JSON fences
+
+Sometimes AI returns:
+
+```json
+{
+  "findings":[]
+}
+```
+
+This step removes the Markdown formatting so that only valid JSON remains.
+
+Step 15: Return the JSON string
+
+return review_output
+
+What this does:
+
+Returns the final JSON string to the main program.
+
+Main Execution
+
+Step 16: Change to the project directory
+
+os.chdir("/root/openaiproject")
+
+What this does:
+
+Ensures the script is running inside the correct directory.
+
+This prevents errors such as:
+
+FileNotFoundError: requirements.txt
+
+if the script is launched from a different working directory.
+
+Step 17: Generate the Python scraper
+
+generate_code(
+    "requirements.txt",
+    "web_scraper.py"
+)
+
+What this does:
+
+Runs the first AI stage.
+
+Input:
+
+requirements.txt
+
+Output:
+
+web_scraper.py
+
+Step 18: Review the generated code
+final_json_string = review_code("web_scraper.py")
+
+What this does:
+
+Runs the second AI stage.
+
+The reviewer AI analyzes web_scraper.py and returns security findings as JSON.
+
+Step 19: Print the final result
+print(final_json_string)
+
+What this does:
+
+Displays only the raw JSON string on the terminal.
+
+Example output:
+
+{
+  "findings": [
+    "Missing User-Agent header",
+    "No timeout specified",
+    "Using HTTP instead of HTTPS"
+  ]
+}
+
+or, if no issues are found:
+
+{
+  "findings": []
+}
+
+Overall Workflow
 
 requirements.txt
         │
         ▼
-Developer AI
-(generate Python code)
+generate_code()
+        │
+        ▼
+OpenAI (Developer)
         │
         ▼
 web_scraper.py
         │
         ▼
-Reviewer AI
-(review for security issues)
+review_code()
         │
         ▼
-JSON findings
+OpenAI (Security Reviewer)
+        │
+        ▼
+Raw JSON Output
 
-The first AI writes code, and the second AI reviews that code.
+Summary
 
-Step 1 – Initialize the client
+This lab demonstrates a simple AI-powered software development pipeline:
 
-client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY"),
-    base_url=os.environ.get("OPENAI_API_BASE"),
-)
+Read the project requirements.
+Use an AI model to generate Python code.
+Save the generated code to a file.
+Read the generated code.
+Use the AI again to perform a security and best-practice review.
+Output the review results as a raw JSON string.
 
-This creates a connection to the AI service using the credentials provided in /root/.bash_profile.
-
-Step 2 – Read the requirements
-
-with open(requirements_path, "r") as f:
-    requirements = f.read()
-
-The AI needs the project requirements before it can generate the Python script.
-
-Step 3 – Generate the code
-
-The first API call uses:
-
-Model: openai/gpt-4.1-mini
-Temperature: 0.0
-
-A temperature of 0.0 makes the output more consistent, which is desirable for code generation.
-
-Step 4 – Save the generated code
-
-with open(output_path, "w") as f:
-    f.write(code)
-
-The generated code is saved as web_scraper.py, which the second stage will read.
-
-Step 5 – Review the code
-
-The second API call changes the AI's role by using a system prompt that instructs it to act as a security reviewer.
-
-It checks for issues such as:
-
-Missing User-Agent header
-Lack of HTTP error handling
-Missing timeouts
-Other security or best-practice concerns
-
-Step 6 – Return only JSON
-
-The reviewer is instructed to return only raw JSON, for example:
-
-{"findings":["Missing User-Agent header"]}
-
-This avoids Markdown formatting, which could cause the automated grader to fail.
-
-Step 7 – Print the final result
-
-print(review_code("web_scraper.py"))
-
-The lab specifies that the final output should be only the JSON string returned by the reviewer.
+This mirrors a real-world development workflow where AI assists both in writing code and reviewing it for potential issues before deployment.
 
 ---
