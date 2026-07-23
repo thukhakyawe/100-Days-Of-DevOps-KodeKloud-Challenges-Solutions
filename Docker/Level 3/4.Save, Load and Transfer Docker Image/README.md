@@ -222,6 +222,7 @@ docker load imports a Docker image from a tar archive.
 Docker recreates the image with the same repository name (news) and tag (nautilus).
 
 Step 10 — Verify the Image
+
 docker images
 
 This confirms the image is now available on App Server 3 and ready to be used for creating containers.
