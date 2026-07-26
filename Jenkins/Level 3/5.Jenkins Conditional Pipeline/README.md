@@ -224,6 +224,7 @@ Step 7: Verify the Node Is Online
 Go to:
 
 Manage Jenkins
+
 → Nodes
 
 You want:
@@ -325,6 +326,7 @@ This project is parameterized
 Click:
 
 Add Parameter
+
 → String Parameter
 
 Configure:
@@ -349,8 +351,7 @@ Set:
 
 Definition: Pipeline script
 
-I recommend this pipeline:
-
+```
 pipeline {
     agent {
         label 'stapp01'
@@ -380,6 +381,7 @@ pipeline {
         }
     }
 }
+```
 
 Click Save.
 
@@ -429,6 +431,36 @@ git reset --hard origin/master
 The build should finish:
 
 Finished: SUCCESS
+
+Example Output:
+
+```
+Started by user admin
+
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on App Server 1
+ in /home/sarah/jenkins_agent/workspace/datacenter-webapp-job
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] sh
++ cd /var/www/html
++ git fetch origin
++ '[' master = master ']'
++ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
++ git reset --hard origin/master
+HEAD is now at 26f4ed0 Added index.html file
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+```
+
 Step 14: Verify Master
 
 On App Server 1:
@@ -484,7 +516,10 @@ and check the App URL.
 
 The feature version should now be deployed.
 
+---
+
 🧠 Part 2: Simple Step-by-Step Explanation
+
 1. What is new in this lab?
 
 Previously the pipeline simply deployed whatever branch was already checked out.
@@ -715,3 +750,5 @@ Checkout
 Deploy
 
 they are all steps within one Jenkins stage.
+
+---
