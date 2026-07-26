@@ -211,6 +211,7 @@ java -version
 The Jenkins controller may require the agent to use a newer Java version. Fix the agent Java version first and then reconnect it.
 
 sudo dnf install java-17-openjdk -y
+sudo alternatives --config java
 Select - 2 and then Enter
 exit
 
