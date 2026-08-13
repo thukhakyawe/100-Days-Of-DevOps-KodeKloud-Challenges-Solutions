@@ -2,7 +2,7 @@
 
 
 
-A hands-on 100-day DevOps challenge through KodeKloud Engineer platform, featuring daily practical tasks and real-world scenarios. I completed the 100 Days of DevOps challenges as part of my DevOps learning journey.However, I did not document Days 1–63 in this repository at the time I completed them. I currently no longer have access to the original lab environments needed to reproduce my exact historical work.
+A hands-on 100-day DevOps challenge through KodeKloud Engineer platform, featuring daily practical tasks and real-world scenarios. I completed the 100 Days of DevOps challenges as part of my DevOps learning journey.However, I did not document Days 1–62 in this repository at the time I completed them. I currently no longer have access to the original lab environments needed to reproduce my exact historical work.
 
 🗓️ Daily Tasks Progress
 Phase 1: Linux & System Administration (Days 1-20)
